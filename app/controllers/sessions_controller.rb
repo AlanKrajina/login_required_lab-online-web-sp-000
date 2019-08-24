@@ -18,11 +18,7 @@ class SessionsController < ApplicationController
     session.destroy
   end
 
-  private
 
-def require_login
-  return head(:forbidden) unless session.include? session[:name]
-end
 
 
 end
