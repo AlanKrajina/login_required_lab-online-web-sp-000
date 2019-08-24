@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   private
 
 def require_login
-  return head(:forbidden) unless session.include? :user_id
+  return head(:forbidden) unless session.include? session[:name]
 end
 
 
