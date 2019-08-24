@@ -3,7 +3,7 @@ class SecretsController < ApplicationController
 
   def show
     if session[:name]
-      redirect_to artist_songs_path(@artist)
+      redirect_to 'sessions/new'
     end
   end
 
