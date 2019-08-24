@@ -1,3 +1,4 @@
+require 'pry'
 module SessionsHelper
 
   # Logs in the given user.
@@ -8,6 +9,7 @@ module SessionsHelper
   # Returns the current logged-in user (if any).
   def current_user
     if session[:name]
+      binding.pry
       @current_user ||= User.find_by(name: session[:name])
     end
   end
