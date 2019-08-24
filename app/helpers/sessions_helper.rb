@@ -7,8 +7,8 @@ module SessionsHelper
 
   # Returns the current logged-in user (if any).
   def current_user
-    if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
+    if session[:name]
+      @current_user ||= User.find_by(name: session[:name])
     end
   end
 
