@@ -1,21 +1,17 @@
 require 'pry'
 module SessionsHelper
 
-  # Logs in the given user.
-#  def log_in(user)
-#    session[:user_id] = user.id
-#  end
-
-  # Returns the current logged-in user (if any).
-  def current_user
-    if session[:name]
-  #    binding.pry
-      @current_user=session[:name]
-    end
+  def hello
+    redirect_to controller: 'sessions', action: 'new' unless session[:name]
   end
 
-  # Returns true if the user is logged in, false otherwise.
-  def logged_in?
-    !current_user.nil?
+  def current_user
+    session[:name]
+  end
+
+  private
+
+  def require_logged_in
+    redirect_to controller: 'sessions', action: 'new' unless current_user
   end
 end
